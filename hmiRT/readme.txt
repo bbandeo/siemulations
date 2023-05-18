@@ -1,1 +1,0 @@
-Reemplazar los archivos originales que se encuentran en src/lib/hmiRT por estos
