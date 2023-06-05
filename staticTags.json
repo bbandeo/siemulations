@@ -1,0 +1,14 @@
+{
+    "qr-1-id-plc": 2500,
+    "qr-1-ID": 123,
+    "qr-1-error": 0,
+    "qr-1-codebar": "100000000003668107S1",
+    "asrs-ok": "TRUE",
+    "busy": "FALSE",
+    "modo": 1,
+    "error": 0,
+    "error-id": 57664,
+    "contador": 98,
+    "estado-emergencia": 77,
+    "pallet-cuna": "FALSE"
+}
