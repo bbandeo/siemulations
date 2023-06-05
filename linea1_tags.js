@@ -1,0 +1,261 @@
+let line1 = [
+    //  Ingresar pallet button
+    {
+      Id: "ingresar-pallets",
+      Tag: "acp_ing_l1_coord_cmd_act_ingr_1",
+      comment: ""
+    },
+  
+    //  ██████╗ ██████╗   ██╗    LECTURA DE CODIGO DE BARRAS
+    // QR-1-Request-from-plc                           
+    {
+      Id: "qr-1-new",
+      Tag: "DBTransportes_CodeBar_NewData",
+      comment: "Subscribe"
+    },
+    {
+      Id: "qr-1-id-plc",
+      Tag: "DBTransportes_CodeBar_IdPallet",
+      comment: ""
+    },
+    {
+      Id: "qr-1-ID",
+      Tag: "DBTransportes_CodeBar_ID",
+      comment: ""
+    },
+    {
+      Id: "qr-1-error",
+      Tag: "DBTransportes_CodeBar_Error",
+      comment: ""
+    },
+    {
+      Id: "qr-1-codebar",
+      Tag: "DBTransportes_CodeBar_CodeBar",
+      comment: ""
+    },
+  
+    // QR-1-Response
+    {
+      Id: "qr-1-new-response",
+      Tag: "DBSoft_CodeBar_NewData",
+      comment: ""
+    },
+    {
+      Id: "qr-1-id-plc-response",
+      Tag: "DBSoft_CodeBar_IdPallet",
+      comment: ""
+    },
+    {
+      Id: "qr-1-ID-response",
+      Tag: "DBSoft_CodeBar_ID",
+      comment: ""
+    },
+    {
+      Id: "qr-1-error-response",
+      Tag: "DBSoft_CodeBar_Error",
+      comment: ""
+    },
+    {
+      Id: "qr-1-codebar-response",
+      Tag: "DBSoft_CodeBar_CodeBar",
+      comment: ""
+    },
+  
+    //  ██████╗  █████╗ ██╗     ██╗██████╗  ██████╗   Control de rechazos (galibo y demás)
+  
+    // Galibo-1-Request-From-PLC
+    {
+      Id: "galibo-1-new",
+      Tag: "DBTransportes_Rejection_NewData",
+      comment: "Subscribe"
+    },
+    {
+      Id: "galibo-1-id-plc",
+      Tag: "DBTransportes_Rejection_IdPallet",
+      comment: ""
+    },
+    {
+      Id: "galibo-1-ID",
+      Tag: "DBTransportes_Rejection_ID",
+      comment: ""
+    },
+    {
+      Id: "galibo-1-error",
+      Tag: "DBTransportes_Rejection_Error",
+      comment: ""
+    },
+    // Galibo-1-response
+    {
+      Id: "galibo-1-new-response",
+      Tag: "DBSoft_Rejection_NewData",
+      comment: ""
+    },
+    {
+      Id: "galibo-1-ID-response",
+      Tag: "DBSoft_Rejection_ID",
+      comment: ""
+    },
+    {
+      Id: "galibo-1-error-response",
+      Tag: "DBSoft_Rejection_Error",
+      comment: ""
+    },
+  
+    // ██╗███╗   ██╗ ██████╗ ██████╗ ███████╗███████╗ ██████╗   Ingreso 
+    // ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ 
+    // 
+    {
+      Id: "ingreso-1-new",
+      Tag: "DBTransportes_Load_NewData",
+      comment: "Subscribe"
+    },
+    {
+      Id: "ingreso-1-ID",
+      Tag: "DBTransportes_Load_ID",
+      comment: ""
+    },
+    {
+      Id: "ingreso-1-id-plc",
+      Tag: "DBTransportes_Load_IdPallet",
+      comment: ""
+    },
+    // Response-ingreso
+  
+    {
+      Id: "ingreso-1-new-response",
+      Tag: "DBSoft_Load_NewData",
+      comment: ""
+    },
+    {
+      Id: "ingreso-1-ID-response",
+      Tag: "DBSoft_Load_ID",
+      comment: ""
+    },
+    {
+      Id: "ingreso-1-id-plc-response",
+      Tag: "DBSoft_Load_IdPallet",
+      comment: ""
+    },
+  
+    // Pesaje 
+    {
+      Id: "peso-1-new",
+      Tag: "DBTransportes_Weight_NewData",
+      comment: "Subscribe"
+    },
+    {
+      Id: "peso-1-id-plc",
+      Tag: "DBTransportes_Weight_IdPallet",
+      comment: ""
+    },
+    {
+      Id: "peso-1-ID",
+      Tag: "DBTransportes_Weight_ID",
+      comment: ""
+    },
+    {
+      Id: "peso-1-error",
+      Tag: "DBTransportes_Weight_Error",
+      comment: ""
+    },
+    {
+      Id: "peso-1-valor",
+      Tag: "DBTransportes_Weight_Weight",
+      comment: ""
+    },
+  
+    // Pesaje-1-Response
+    {
+      Id: "peso-1-new-response",
+      Tag: "DBSoft_Weight_NewData",
+      comment: "Subscribe"
+    },
+    {
+      Id: "peso-1-id-plc-response",
+      Tag: "DBSoft_Weight_IdPallet",
+      comment: ""
+    },
+    {
+      Id: "peso-1-ID-response",
+      Tag: "DBSoft_Weight_ID",
+      comment: ""
+    },
+    {
+      Id: "peso-1-error-response",
+      Tag: "DBSoft_Weight_Error",
+      comment: ""
+    },
+  
+  
+    // OTROS
+    {
+      Id: "ingreso_l1_ok",
+      Tag: "Static_varios_DatosIngresadosOk_L1",
+      comment: ""
+    },
+    {
+      Id: "modo-l1",
+      Tag: "DBIntercSoft_status_Line1_uploadOrDownloadMode",
+      comment: "Subscribe"
+    },
+    {
+      Id: "disponible-descarga-l1",
+      Tag: "DBIntercSoft_status_Line1_readyToDownload",
+      comment: "Subscribe"
+    },
+  
+  
+    // ALTURA EN GALIBO  
+    {
+      Id: "altura-1-new",
+      Tag: "DBTransportes_Galibo_NewData",
+      comment: "Subscribe"
+    },
+    {
+      Id: "altura-1-id-plc",
+      Tag: "DBTransportes_Galibo_IdPallet",
+      comment: ""
+    },
+    {
+      Id: "altura-1-ID",
+      Tag: "DBTransportes_Galibo_ID",
+      comment: ""
+    },
+    {
+      Id: "altura-1-error",
+      Tag: "DBTransportes_Galibo_Error",
+      comment: ""
+    },
+    {
+      Id: "altura-1-valor",
+      Tag: "DBTransportes_Galibo_Galibo",
+      comment: ""
+    },
+  
+    // Galibo-1-Response
+    {
+      Id: "altura-1-new-response",
+      Tag: "DBSoft_Galibo_NewData",
+      comment: "Subscribe"
+    },
+    {
+      Id: "altura-1-id-plc-response",
+      Tag: "DBSoft_Galibo_IdPallet",
+      comment: ""
+    },
+    {
+      Id: "altura-1-ID-response",
+      Tag: "DBSoft_Galibo_ID",
+      comment: ""
+    },
+    {
+      Id: "altura-1-error-response",
+      Tag: "DBSoft_Galibo_Error",
+      comment: ""
+    },
+  
+  
+  ]
+  
+  module.exports = { line1 }
+  
