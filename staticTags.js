@@ -5,17 +5,7 @@ const subscribingTagsFilename = 'subscribingTags.json'
 
 exports.multiRead = async function (tagArray) {
     const valuesObject = {}
-    
     const tagReadout = await readJSON('multiRead')
-
-    // const valuesObject = 
-    // case 'ingreso':
-    //     tags = await this.multiRead([`ingreso-${num}-id-plc`, `ingreso-${num}-ID`]);
-    //     return {
-    //       counter: tags[`ingreso-${num}-ID`],
-    //       idPallet: tags[`ingreso-${num}-id-plc`],
-    //     };
-    // }
 
     tagArray.forEach(tag => { valuesObject[tag] = tagReadout[tag] })
     // console.log("LA LECTURA DEL MULTIREAD SERÍA: ")
@@ -27,12 +17,8 @@ exports.multiRead = async function (tagArray) {
 
 
 exports.readTag = async function (tag) {
-
     const tagReadout = await readJSON('readTag')
     const tagValue = tagReadout[tag].toString()
-    console.log("tagValue")
-    console.log(tagValue)
-    console.log("tagValue")
     return tagValue
 }
 
@@ -44,15 +30,14 @@ async function readJSON(type) {
             data = await JSON.parse(fs.readFileSync(staticTagsFilename, 'utf8'))
             // console.log("Multiread data:")
             // console.log(data)
-            // console.log("-------______---------")
+            // console.log("----------------")
             break
 
         case 'readTag':
             data = await JSON.parse(fs.readFileSync(staticTagsFilename, 'utf8'))
             // console.log("read data:")
             // console.log(data)
-            // console.log("-------______---------")
-            // fs.readFile(staticTagsFilename, (err, data) => {
+            // console.log("----------------")
             break
 
         case 'subscribe':
