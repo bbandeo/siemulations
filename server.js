@@ -1,35 +1,32 @@
 const net = require('net');
-const { readTag, multiRead } = require('./staticTags');
+const { readTag, readSubscriptions } = require('./staticTags');
 const staticPORT = 4202;
 const PORT = 4201;
 
 
 
-// SERVIDOR PARA READS
-// Este servidor simula todas las lecturas individuales llamadas con la función asrs.readTag() o line_1.readTag()
+//            ==> SERVIDOR PARA READS <==
+//                %==================%
+// Este servidor simula todas las lecturas individuales 
+// llamadas con las funciones .readTag() o .multiRead()
 
 const staticServer = net.createServer((socket) => {
-    socket.on('error', err => console.log("Cliente desconectado"))
 
+    
     socket.on('data', async data => {
+
         const dataToString = data.toString()
 
-
-        // MULTIREAD ====> Todavía no funciona del todo el multiread
-        if (dataToString.includes('"ReadTag"')) {
-            const tagArray = ((JSON.parse(dataToString)).Params.Tags)
-            const tag = (await multiRead(tagArray))
-            if (tag != undefined) {
-                socket.write(tag.toString())
-            }
-        }
-        // <==== MULTIREAD 
-
-
-        // READ ONE TAG ====>
+        // Si los datos recibidos incluyen la bandera de lectura
         if (dataToString.includes("ReadTagValue")) {
+
+            // => Convierto el string de lectura que envía CTTO
             const variable = dataToString.split(" ")[1]
+            
+            // => Llamo a función de lectura de JSON
             const tag = (await readTag(variable)).toString()
+
+            // => Si devuelve algo lo envío a CTTO
             if (tag != undefined) {
                 socket.write(tag)
             }
@@ -40,6 +37,12 @@ const staticServer = net.createServer((socket) => {
     socket.on('end', () => {
         console.log('Conexión cerrada');
     });
+
+    
+    socket.on('error', () => {
+        // Manejar el cierre de la conexión
+        console.log('Conexión cerrada');
+    });
 });
 
 
@@ -48,13 +51,14 @@ const staticServer = net.createServer((socket) => {
 
 // SERVIDOR PARA SUBSCRIPTIONS
 // Crea el servidor y comienza a escuchar conexiones entrantes
-
 const publisher = net.createServer((client) => {
+    //console.log('Cliente conectado')
+    //console.log('Cliente conectado:', client.remoteAddress, client.remotePort);
+    console.log('Cliente conectado al puerto:', client.remotePort);
+    //client.on('error', err => console.log("Cliente desconectadoooooooooooooooo"))
+    client.on('error', err => console.log("Cliente desconectadoooooooooooooooo", err));
 
-    // console.log('Cliente conectado al puerto:', client.remotePort)
-    client.on('error', err => console.log("Cliente desconectado", err));
-
-    const subscriptionMsg =
+    let message =
     {
         "ClientCookie": "SubscribeTagCookie",
         "Message": "NotifySubscribeTag",
@@ -65,27 +69,75 @@ const publisher = net.createServer((client) => {
                     "value": "TRUE"
                 },
                 {
-                    "id": "DBTransportes_CodeBar_IdPallet",
-                    //"id": "DBTransportes_CodeBar_NewData",
-                    "value": "TRUE"
+                    "id": "galibo-1-new",
+                    "value": "FALSE"
                 },
                 {
-                    "id": "galibo-1-new",
+                    "id": "ingreso-1-new",
+                    "value": "FALSE"
+                },
+                {
+                    "id": "ingreso-1-new",
+                    "value": "FALSE"
+                },
+                {
+                    "id": "ingreso-1-new",
                     "value": "FALSE"
                 }
             ]
         }
     }
 
-
+    // Envia un mensaje al cliente
     setInterval(() => {
+
         // cada 3 segundos envia una respuesta al cliente conectado
-        // console.log(client.localAddress)
-        client.write(JSON.stringify(subscriptionMsg))
-    }, 3000)
+
+        client.write(JSON.stringify(message));
+    }, 3000);
+
+    // Cierra la conexión
+    //   client.end();
+});
 
 
-})
+
+
+
+//  <> <> Mañana arreglo las subscriptions <> <> 
+// const publisher = net.createServer(client => {
+
+//     console.log('Cliente conectado a subscriptions'/**, client.remotePort */)
+
+
+//     setInterval(async () => {
+//         // const subscription = (await readSubscriptions())
+//         // if(!subscription) return
+//         // const subscriptionMsg = subscription.toString()
+//         // console.log("subscriptionMsg")
+//         // cada 3 segundos envia una respuesta al cliente conectado
+//         const subscriptionMsg =
+//         {
+//             "ClientCookie": "SubscribeTagCookie",
+//             "Message": "NotifySubscribeTag",
+//             "Params": {
+//                 "Tags": [
+        
+//                 ]
+//             }
+//         }
+//         client.write(subscriptionMsg.toString())
+//     }, 3000)
+
+//     client.on('end', () => {
+//         console.log('Conexión cerrada');
+//     });
+//     client.on('error', () => {
+//         // Manejar el cierre de la conexión
+//         console.log('Conexión cerrada');
+//     });
+
+// })
 
 
 // ==============================>

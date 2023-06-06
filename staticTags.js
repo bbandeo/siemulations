@@ -5,18 +5,23 @@ const subscribingTagsFilename = 'subscribingTags.json'
 
 exports.multiRead = async function (tagArray) {
     const valuesObject = {}
-    const tagReadout = await readJSON('multiRead')
-
+    const tagReadout = await readJSON('readTag')
     tagArray.forEach(tag => { valuesObject[tag] = tagReadout[tag] })
-    // console.log("LA LECTURA DEL MULTIREAD SERÍA: ")
-    // console.log(valuesObject)
-    // console.log("LA LECTURA DEL MULTIREAD SERÍA <===")
-
     return valuesObject
+}
+
+exports.readSubscriptions = async function () {
+    const subscriptionValues = await readJSON('subscribe')
+    // console.log("subscription")
+    // console.log(JSON.stringify(subscriptionValues))
+    // console.log("subscription")
+    // console.log(subscriptionValues)
+    return (JSON.stringify(subscriptionValues))
 }
 
 
 exports.readTag = async function (tag) {
+    console.log(`Leyendo ${tag}`)
     const tagReadout = await readJSON('readTag')
     const tagValue = tagReadout[tag].toString()
     return tagValue
@@ -28,68 +33,71 @@ async function readJSON(type) {
     switch (type) {
         case 'multiRead':
             data = await JSON.parse(fs.readFileSync(staticTagsFilename, 'utf8'))
-            // console.log("Multiread data:")
-            // console.log(data)
-            // console.log("----------------")
             break
 
         case 'readTag':
             data = await JSON.parse(fs.readFileSync(staticTagsFilename, 'utf8'))
-            // console.log("read data:")
-            // console.log(data)
-            // console.log("----------------")
             break
 
         case 'subscribe':
+            console.log("Entro a suscription")
+            const jsonFile = await JSON.parse(fs.readFileSync(subscribingTagsFilename, 'utf8'))
+            const subsIds = Object.keys(jsonFile)
+            // ! DEEP CLONE ! //
+            console.log(jsonFile)
+            data = JSON.parse(JSON.stringify(subscriptionMsg))
+            subsIds.forEach(tag => {
+                console.log(tag)
+                data.Params.Tags.push({ id: tag, value: jsonFile[tag] })
+            })
             break
 
         default:
             return 0
     }
 
-
     return data
 
 }
 
 
+
+const subscriptionMsg =
+{
+    "ClientCookie": "SubscribeTagCookie",
+    "Message": "NotifySubscribeTag",
+    "Params": {
+        "Tags": [
+
+        ]
+    }
+}
+
+
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
 // ██╗███╗   ██╗███████╗ ██████╗     ↓
 // ██║████╗  ██║██╔════╝██╔═══██╗    ↓
 // ██║██╔██╗ ██║█████╗  ██║   ██║    ↓
 // ██║██║╚██╗██║██╔══╝  ██║   ██║    ↓
 // ██║██║ ╚████║██║     ╚██████╔╝    ↓
 // ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝     ↓
-
-
-
-let equivalenciasCodigoViejo =
+// Info del punto de comunicación QR-1
+exports.equivalenciasCodigoViejo =
 {
     "qr-1-id-plc": 'DBTransportes_CodeBar_IdPallet',
     //Valor que asigna el PLC cada vez que lee un pallet nuevo en la linea:', idPallet);
     // Lo asocia al pallet en cuestión y lo transporta por todo el sistema a ese ID
     // Para el PLC el pallet es un idPallet, y no tiene otra info mas que ese idPallet
 
-
     "qr-1-ID": 'DBTransportes_CodeBar_ID',
     // Contador que igualamos para cerrar el punto de comunicación
-
 
     "qr-1-error": 'DBTransportes_CodeBar_Error',
     // PLC avisa si tuvo error en el punto de comunicacion (leyendo el codebar en este caso)
 
-
     "qr-1-codebar": 'DBTransportes_CodeBar_CodeBar'
     // Codigo de barras o QR leído por PLC
 }
-
-
-
-
-
-    // 'DBTransportes_CodeBar_2_NewData',
-    // 'DBTransportes_Rejection_2_NewData',
-    // 'DBTransportes_Load_2_NewData',
-    // 'DBIntercSoft_status_Line2_uploadOrDownloadMode',
-    // 'DBIntercSoft_status_Line2_readyToDownload',
-    // 'DBTransportes_Galibo_2_NewData',
-    // 'DBSoft_Galibo_2_NewData'
