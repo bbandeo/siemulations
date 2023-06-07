@@ -10,5 +10,10 @@
     "error-id": 57664,
     "contador": 98,
     "estado-emergencia": 77,
-    "pallet-cuna": "FALSE"
+    "pallet-cuna": "FALSE",
+    "galibo-1-id-plc": 2800,
+    "galibo-1-ID": 124,
+    "galibo-1-error": "E200",
+    "ingreso-1-ID": 2950,
+    "ingreso-1-id-plc":2500
 }

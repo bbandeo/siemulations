@@ -66,15 +66,18 @@ const publisher = net.createServer((client) => {
             "Tags": [
                 {
                     "id": "qr-1-new",
-                    "value": "TRUE"
+                    //"value": "TRUE"
+                    "value": "FALSE"
                 },
                 {
                     "id": "galibo-1-new",
                     "value": "FALSE"
+                    //"value": "TRUE"
                 },
                 {
                     "id": "ingreso-1-new",
-                    "value": "FALSE"
+                    //"value": "FALSE"
+                    "value": "TRUE"
                 },
                 {
                     "id": "ingreso-1-new",
