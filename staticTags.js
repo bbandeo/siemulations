@@ -10,21 +10,16 @@ exports.multiRead = async function (tagArray) {
     return valuesObject
 }
 
-exports.readSubscriptions = async function () {
-    const subscriptionValues = await readJSON('subscribe')
-    // console.log("subscription")
-    // console.log(JSON.stringify(subscriptionValues))
-    // console.log("subscription")
-    // console.log(subscriptionValues)
-    return (JSON.stringify(subscriptionValues))
-}
-
-
 exports.readTag = async function (tag) {
-    console.log(`Leyendo ${tag}`)
     const tagReadout = await readJSON('readTag')
     const tagValue = tagReadout[tag].toString()
+    console.log(`Value de ${tag} ==> ${tagValue}`)
     return tagValue
+}
+
+exports.readSubscriptions = async function () {
+    const subscriptionValues = await readJSON('subscribe')
+    return subscriptionValues
 }
 
 
@@ -40,16 +35,15 @@ async function readJSON(type) {
             break
 
         case 'subscribe':
-            console.log("Entro a suscription")
+
             const jsonFile = await JSON.parse(fs.readFileSync(subscribingTagsFilename, 'utf8'))
             const subsIds = Object.keys(jsonFile)
-            // ! DEEP CLONE ! //
-            console.log(jsonFile)
             data = JSON.parse(JSON.stringify(subscriptionMsg))
+            
             subsIds.forEach(tag => {
-                console.log(tag)
                 data.Params.Tags.push({ id: tag, value: jsonFile[tag] })
             })
+
             break
 
         default:
