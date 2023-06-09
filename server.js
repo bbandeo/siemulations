@@ -1,7 +1,7 @@
-const net = require('net');
-const { readTag, readSubscriptions } = require('./staticTags');
-const staticPORT = 4202;
-const PORT = 4201;
+const net = require('net')
+const { readTag, readSubscriptions } = require('./staticTags')
+const staticPORT = 4202
+const PORT = 4201
 
 
 
