@@ -28,15 +28,11 @@
 
 
     "asrs-ok": "TRUE",           
-    "busy": "FALSE",                <=== Subscribe
     "modo": 1,
-    "error": 0,                     <=== Subscribe
     "error-id": 57664,
     "contador": 98,
-    "estado-emergencia": 77,        <=== Subscribe
-    "pallet-cuna": "FALSE",         <=== Subscribe
 
-    "done" : 0                      <=== Subscribe
+    "done" : 0
 
 }
 

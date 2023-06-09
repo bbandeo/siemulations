@@ -11,6 +11,7 @@
     "altura-1-new-response": "FALSE",
 
 
+    "asrs-ok": "TRUE",
     "asrs-new-data" : "TRUE",
     "busy" : "FALSE",
     "asrs-ready" : "FALSE",
@@ -25,6 +26,5 @@
     "zside" : 0,
     "calle-actual" : 1,
     "nivel-actual" : 1,
-    "profundidad-actual" : 0
-
+    "profundidad-actual" : 0,
 }
