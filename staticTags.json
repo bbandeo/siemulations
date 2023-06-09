@@ -1,0 +1,42 @@
+{
+
+    "qr-1-id-plc": 2500,
+    "qr-1-ID": 123,
+    "qr-1-error": 0,
+    "qr-1-codebar": "100000000003668107S1",
+
+
+    "galibo-1-id-plc": 2800,
+    "galibo-1-ID": 124,
+    "galibo-1-error": "E200",
+
+
+    "ingreso-1-ID": 2950,
+    "ingreso-1-id-plc":2500,
+
+
+    "peso-1-id-plc": 2500,
+    "peso-1-ID" : 125,
+    "peso-1-error" : 0,
+    "peso-1-valor" : 750,
+
+
+    "altura-1-id-plc" : 2500,
+    "altura-1-ID" : 126 ,
+    "altura-1-error" : 0,
+    "altura-1-valor" : 2,
+
+
+    "asrs-ok": "TRUE",           
+    "busy": "FALSE",                <=== Subscribe
+    "modo": 1,
+    "error": 0,                     <=== Subscribe
+    "error-id": 57664,
+    "contador": 98,
+    "estado-emergencia": 77,        <=== Subscribe
+    "pallet-cuna": "FALSE",         <=== Subscribe
+
+    "done" : 0                      <=== Subscribe
+
+}
+
