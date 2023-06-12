@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/bbandeo/siemulations#readme",
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "pm2-windows-startup": "^1.0.3"
   }
 }
