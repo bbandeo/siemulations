@@ -20,18 +20,28 @@
 // En cambio los staticTags son variables las cuales leemos en determinados momentos de ejecución
 // para saber el estado del sistema o la información que el PLC nos brinde para tomar caminos de acción
 //
+
+//
+//
+//
+//
+//
+//
+//
+
 //
 //
 //
 // 
 
 const puntos_de_comunicacion = {
-    //
-    "qr-1-id-plc": 2500,
-    "galibo-1-id-plc": 2800,
-    "ingreso-1-id-plc": 2500,
-    "peso-1-id-plc": 2500,
-    "altura-1-id-plc": 2500,
+
+                    "qr-1-id-plc": 2500,
+                    "galibo-1-id-plc": 2800,
+                    "ingreso-1-id-plc": 2500,
+                    "peso-1-id-plc": 2500,
+                    "altura-1-id-plc": 2500,
+
     // 
     //  ! Los valores de plc-id también idPallet en proyectos mas viejos
     //  ! Son comunes a cada punto ya que nos indican el pallet en cuestión
@@ -41,14 +51,24 @@ const puntos_de_comunicacion = {
     //  ! Y CTTO sabe a que pallet hace referencia, pudiendo moodificar los atributos
     //  ! Del mismo, tales como Altura, en galibo. Posición en punto ASRS, etc.
     //
+
+                    "qr-1-ID": 123,
+                    "galibo-1-ID": 124,
+                    "ingreso-1-ID": 2950,
+                    "peso-1-ID": 125,
+                    "altura-1-ID": 126,
+    
     //
-    "qr-1-ID": 123,
-    "galibo-1-ID": 124,
-    "ingreso-1-ID": 2950,
-    "peso-1-ID": 125,
-    "altura-1-ID": 126,
+    //  ! El ID que debemos igualar al final de la comunicación para 
+    //  ! Que el punto de comunicación se cierre de forma correcta
+    //  ! de otra manera el PLC entiende que hubo un problema en la comunicación
+    //  ! Ya que al leer esta variable se leen las otras relacionadas al punto
+    //  ! Por lo que 
+    //  ! 1) Si no respondemos, el PLC sale por timeout y rechaza la operación en curso
+    //  ! 2) Si respondemos con un valor distinto al que espera, entiende que el punto 
+    //  !  no fue leído de manera correcta y rechaza la operación
     //
-    //
+    
     //
     //
     // "qr-1-error": 0,

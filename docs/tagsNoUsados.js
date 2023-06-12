@@ -221,51 +221,58 @@ let line1 = [
       Tag: "DBTranselevador_transactionReq_ID",
       comment: ""
     },
+
+    //                         ---> OPERACIONES DENTRO DEL WAREHOUSE <----
+    //  
+    //    En simplificación, todas las operaciones de movimiento de unidades de carga (pallets/cajas)
+    //    Son intercambios entre un destino y el otro. Se setean estos valores en Tags de PLC
+    //    Estos valores combinados terminan formando un id de coordenadas o slot: L0C1N1P1
+
     {
       Id: "asrs-origen-side",
       Tag: "DBTranselevador_transactionReq_origin.side",
-      comment: ""
+      comment: "Lado de origen. 0 izquierda, 1 derecha "
     },
     ,
     {
       Id: "asrs-origen-depth",
       Tag: "DBTranselevador_transactionReq_origin.depth",
-      comment: ""
+      comment: "Profundidad de origen"
     },
     ,
     {
       Id: "asrs-origen-street",
       Tag: "DBTranselevador_transactionReq_origin.street",
-      comment: ""
+      comment: "Calle de origen"
     },
     ,
     {
       Id: "asrs-origen-level",
       Tag: "DBTranselevador_transactionReq_origin.level",
-      comment: ""
+      comment: "Nivel de origen"
     },
     {
       Id: "asrs-destino-side",
       Tag: "DBTranselevador_transactionReq_destination.side",
-      comment: ""
+      comment: "Lado de destino"
     },
     ,
     {
       Id: "asrs-destino-depth",
       Tag: "DBTranselevador_transactionReq_destination.depth",
-      comment: ""
+      comment: "Profundidad de destino"
     },
     ,
     {
       Id: "asrs-destino-street",
       Tag: "DBTranselevador_transactionReq_destination.street",
-      comment: ""
+      comment: "Calle de destino"
     },
     ,
     {
       Id: "asrs-destino-level",
       Tag: "DBTranselevador_transactionReq_destination.level",
-      comment: ""
+      comment: "Nivel de destino"
     },
     {
       Id: "asrs-transaction",
@@ -273,7 +280,6 @@ let line1 = [
       comment: "Estado de la tarea tomar o dejar pallet del transelevador. 0: Nada - 1: Pallet tomado en origen - 2: Pallet depositado en destino"
     },
   
-   
     {
       Id: "reset",
       Tag: "c_stacker.reset",
