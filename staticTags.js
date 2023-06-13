@@ -1,6 +1,7 @@
 const fs = require('fs')
 const staticTagsFilename = 'staticTags.json'
-const subscribingTagsFilename = 'subscribingTags.json'
+//const subscribingTagsFilename = 'subscribingTags.json'
+const subscribingTagsFilename = 'subscriptionTags.json'
 
 
 exports.multiRead = async function (tagArray) {

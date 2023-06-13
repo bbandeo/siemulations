@@ -2,6 +2,7 @@ const net = require('net');
 const { readTag } = require('./staticTags');
 const staticPORT = 4202;
 
+
 const staticServer = net.createServer((socket) => {
   socket.on('data', async (data) => {
     const dataToString = data.toString();

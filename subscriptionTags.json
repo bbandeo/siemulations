@@ -1,6 +1,6 @@
 {
 
-    "qr-1-new": "FALSE",
+    "qr-1-new": "TRUE",
     "galibo-1-new": "FALSE",
     "ingreso-1-new": "FALSE",
     "peso-1-new": "FALSE",
@@ -26,5 +26,5 @@
     "zside" : 0,
     "calle-actual" : 1,
     "nivel-actual" : 1,
-    "profundidad-actual" : 0,
+    "profundidad-actual" : 0
 }

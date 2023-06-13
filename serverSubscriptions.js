@@ -1,5 +1,6 @@
 const net = require('net');
 const { readSubscriptions } = require('./staticTags');
+
 const PORT = 4201;
 
 const publisher = net.createServer((client) => {

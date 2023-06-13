@@ -1,9 +1,10 @@
 const net = require('net')
 const { readTag, readSubscriptions } = require('./staticTags')
+const staticPORT = 4202;
+const PORT = 4201;
 
 
 
-/*
 //            ======> SERVIDOR PARA READS <======
 
 const staticServer = net.createServer((socket) => {
@@ -75,5 +76,3 @@ staticServer.listen(staticPORT, () => { console.log(`Servidor StaticNet escuchan
 // // //
 // 
 // // //
-
-*/
