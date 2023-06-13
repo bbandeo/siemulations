@@ -1,6 +1,6 @@
 {
 
-    "qr-1-new": "TRUE",
+    "qr-1-new": "FALSE",
     "galibo-1-new": "FALSE",
     "ingreso-1-new": "FALSE",
     "peso-1-new": "FALSE",
@@ -14,11 +14,11 @@
     "asrs-ok": "TRUE",
     "asrs-new-data" : "TRUE",
     "busy" : "FALSE",
-    "asrs-ready" : "FALSE",
-    "estado-emergencia": 77,
+    "asrs-ready" : "TRUE",
+    "estado-emergencia": "FALSE",
     "comando-emergencia": 77,
     "error": 0,
-    "estado-transelevador" : "FALSE",
+    "estado-transelevador" : 123,
     "pallet-cuna": "FALSE",
     "modo-Subscribe" : "FALSE",
     "xvalue" : 0,
