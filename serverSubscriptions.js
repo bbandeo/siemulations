@@ -4,7 +4,7 @@ const { readSubscriptions } = require('./staticTags');
 const PORT = 4201;
 
 const publisher = net.createServer((client) => {
-  console.log('Cliente conectado al puerto:', client.remotePort);
+  console.log('Cliente publisher conectado al puerto:', client.remotePort);
 
   client.on('error', (err) => {
     console.log('Cliente desconectadoooooooooooooooo', err);

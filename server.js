@@ -40,7 +40,7 @@ const staticServer = net.createServer((socket) => {
 
 const publisher = net.createServer((client) => {
 
-    console.log('Cliente conectado al puerto:', client.remotePort)
+    console.log('Cliente subscribe conectado al puerto:', client.remotePort)
     client.on('error', err => console.log("Cliente desconectadoooooooooooooooo", err))
 
     setInterval(async () => {
